@@ -1,0 +1,8 @@
+# Google Cloud expands grounding capabilities on Vertex AI
+https://cloud.google.com/blog/products/ai-machine-learning/rag-and-grounding-on-vertex-ai?e=48754805
+
+# The Needle In a Haystack Test: Evaluating the performance of RAG systems
+https://towardsdatascience.com/the-needle-in-a-haystack-test-a94974c1ad38
+
+# The AI detective: The Needle in a Haystack test and how Gemini 1.5 Pro solves it
+https://cloud.google.com/blog/products/ai-machine-learning/the-needle-in-the-haystack-test-and-how-gemini-pro-solves-it?e=48754805
