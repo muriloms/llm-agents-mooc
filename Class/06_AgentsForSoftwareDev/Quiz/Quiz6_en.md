@@ -1,122 +1,109 @@
-## Quiz 1 - LLM Reasoning w/ Denny Zhou
+## Quiz 6 - Software Development Agents
 
 
 ### Question 1
-What is a major limitation of current large language models (LLMs) when it comes to correcting their own reasoning?
-- They often misinterpret prompts
-- They struggle to identify and fix their own reasoning errors without external feedback
-- They are too slow to process complex reasoning tasks
-- They require too much memory to handle reasoning corrections
+What is not an effective method of file localization?
+- Creating a map of the repository structure and using it to guide the agent
+- Offloading the task to the user, allowing experienced users to specify which files to use
+- Using search tools to assist the agent in finding relevant files within the repository
+- Manually scanning through every file in the project directory to find relevant files
 
-**Correct answer: "They struggle to identify and fix their own reasoning errors without external feedback"**
+**Correct answer: "Manually scanning through every file in the project directory to find relevant files"**
+Manually scanning through every file in a project directory is highly inefficient and error-prone, making it an ineffective method for file localization. Here’s why:
+1. Time-consuming:
+- For large repositories, manually reviewing files can take an impractical amount of time and effort.
+2. Error-prone:
+- Human errors, such as overlooking relevant files or misinterpreting file content, are more likely to occur with manual scanning.
+3. Lack of scalability:
+- As projects grow in size and complexity, this method becomes increasingly unfeasible.
 
-A major limitation of large language models (LLMs) is their inability to recognize and correct their own reasoning errors autonomously. They rely heavily on external feedback to identify and address mistakes. This is due to several reasons:
-
-1. LLMs rely on statistical patterns: These models generate responses based on probabilities derived from their training data, not on a deep understanding of logic or reasoning.
-
-2. Lack of self-correction mechanisms: Without intervention (human feedback or external systems), LLMs often fail to reassess their outputs. This can lead to issues like hallucinations, where they confidently provide incorrect or fabricated information.
-
-3. Dependence on external feedback: Techniques such as Reinforcement Learning with Human Feedback (RLHF) are essential for fine-tuning models, as they can't independently validate or refine their reasoning.
-
-The other options are incorrect because:
-
-- "They often misinterpret prompts": While misinterpreting complex or ambiguous prompts can occur, it is not specifically related to correcting their reasoning errors.
-- "They are too slow to process complex reasoning tasks": Most LLMs process tasks efficiently, though they can be computationally expensive.
-- "They require too much memory to handle reasoning corrections": While memory usage is a consideration, it is not the primary limitation in correcting reasoning errors.
+Why the other options are effective:
+- "Creating a map of the repository structure and using it to guide the agent": A structured map helps streamline file localization by providing a clear guide to where relevant files are located.
+- "Offloading the task to the user, allowing experienced users to specify which files to use": Experienced users often have contextual knowledge of the repository, making their input valuable in narrowing down file selection.
+- "Using search tools to assist the agent in finding relevant files within the repository": Search tools enable quick and accurate retrieval of files based on keywords, file types, or other criteria, greatly enhancing efficiency.
 ___
 ### Question 2
-When reasoning with LLMs, what effect does presenting information in an illogical order typically have?
-- It enhances the LLM's ability to generalize the problem
-- It decreases the LLM’s performance on the task
-- It has no effect on performance as LLMs can reorder information
-- It speeds up the LLM's reasoning process
+What does Pass@K measure?
+- After generating K examples, whether there is at least one of them that satisfies the code specification
+- After generating K examples, calculate the average length of the generated outputs to assess their quality
+- After generating K examples, evaluate their complexity using a predefined scoring rubric to determine how many are valid
+- After generating K examples, count the number of unique outputs produced to measure the diversity of the generated responses
 
-**Correct answer: "It decreases the LLM’s performance on the task"**
+**Correct answer: "After generating K examples, whether there is at least one of them that satisfies the code specification"**
 
-Large Language Models (LLMs) are highly sensitive to the contextual structure and logical flow of the input they receive. Presenting information in an illogical order can confuse the model and lead to suboptimal reasoning or incorrect outputs. Here's why:
-
-1. Dependence on sequential context: LLMs process text sequentially, meaning that earlier parts of the input influence how subsequent text is interpreted. If the input lacks a logical sequence, the model may struggle to establish meaningful relationships between ideas.
-
-2. Pattern recognition, not understanding: LLMs do not "understand" content like humans. They rely on recognizing patterns from their training data. When information is disordered, it breaks these expected patterns, reducing the model's ability to generate coherent and accurate responses.
-
-3. Loss of task-specific cues: Illogical order can obscure critical details or relationships needed for task performance, leading to decreased accuracy.
-
-The other options are incorrect because:
-
-- "It enhances the LLM's ability to generalize the problem": Generalization depends on the training process, not on disordered input, which usually hinders reasoning rather than helping.
-- "It has no effect on performance as LLMs can reorder information": LLMs don't inherently reorder information unless explicitly prompted to do so (e.g., "Rearrange this information logically").
-- "It speeds up the LLM's reasoning process": Disordered input typically adds complexity, which can slow down processing and reduce clarity in the output.
-
-___
-### Question 3
-Which of the following approaches could improve an LLM’s performance on solving complex reasoning tasks?
-- Using explicit step-by-step prompts to guide the reasoning process
-- Limiting the model's access to information to avoid confusion
-- Removing all sequential steps from reasoning tasks
-- Presenting premises in random order to test adaptability
-
-**Correct answer: "Using explicit step-by-step prompts to guide the reasoning process"**
-
-Guiding an LLM with explicit step-by-step prompts is a well-established approach for improving its performance on complex reasoning tasks. This method leverages the model's ability to process instructions and follow structured logic, which helps it generate more accurate and coherent responses. Here’s why this approach works:
-
-1. Step-by-step reasoning mimics chain-of-thought: Explicitly breaking down complex tasks into smaller, logical steps helps the model focus on intermediate reasoning rather than attempting to solve the problem all at once. This technique is similar to the "chain-of-thought" prompting method.
-
-2. Reduces cognitive overload: Complex tasks can overwhelm the model if presented as a single, unstructured query. A step-by-step prompt provides clarity and allows the model to tackle one piece of the problem at a time.
-
-3. Improved alignment with training data: LLMs are trained on data that often includes examples of procedural or step-by-step reasoning (e.g., tutorials, manuals). This alignment improves their ability to process structured prompts effectively.
+Pass@K is a metric used to evaluate the performance of generative models, particularly in the context of code generation. It measures the likelihood that at least one of the K generated outputs meets the specified requirements or passes all test cases. This metric is crucial for assessing the practical utility of a model in generating correct and functional outputs.
+1. Relevance to code generation:
+- Code generation models often produce multiple candidate solutions for a given problem. Pass@K evaluates whether at least one of these candidates is correct, reflecting the model's reliability.
+2. Practical focus:
+- In real-world scenarios, a user typically needs only one correct output. Pass@K captures this by focusing on the success of at least one candidate among the K generated.
 
 Why the other options are incorrect:
-- "Limiting the model's access to information to avoid confusion": Restricting information might prevent confusion, but it often leads to incomplete or incorrect responses because the model lacks the necessary context.
+- "Calculate the average length of the generated outputs to assess their quality": Pass@K does not assess output length or quality based on size; it focuses on correctness.
+- "Evaluate their complexity using a predefined scoring rubric to determine how many are valid": Complexity evaluation is unrelated to Pass@K, which measures correctness, not complexity.
+- "Count the number of unique outputs produced to measure the diversity of the generated responses": While diversity is a different metric of interest, Pass@K focuses on accuracy and meeting specifications, not uniqueness.
+___
+### Question 3
+Why is data leakage a big problem when evaluating software agents?
+- It can lead to overly optimistic performance metrics that do not reflect true generalization
+- It makes the code harder to read and maintain by increasing complexity
+- It prevents agents to learn from a broader range of data, hurting their performance on all tasks
+- It decreases the speed of training and evaluation processes, leading to slower model deployment
 
-- "Removing all sequential steps from reasoning tasks": Sequential reasoning is key to solving complex problems. Removing this structure increases ambiguity and decreases performance.
+**Correct answer: "It can lead to overly optimistic performance metrics that do not reflect true generalization"**
 
-- "Presenting premises in random order to test adaptability": Randomizing premises disrupts the logical flow, making it harder for the LLM to establish relationships and reason effectively. Adaptability testing is not a practical approach for improving task performance.
+Data leakage occurs when information from the evaluation dataset is inadvertently included in the training process or used to inform the model inappropriately during evaluation. This is a critical issue in evaluating software agents because:
+
+1. Inflated performance metrics:
+- If the agent has access to information from the test data, it can "cheat" by producing outputs that look correct without actually generalizing the underlying problem. This results in metrics that overestimate the agent's true capabilities.
+2. Poor generalization:
+- A model affected by data leakage may perform well on the evaluation dataset but fail to generalize to unseen data in real-world scenarios, undermining its reliability and usefulness.
+3. Misleading insights:
+- Overly optimistic results can mislead developers and stakeholders, leading to flawed decisions about deploying the model or further refinement efforts.
+
+Why the other options are incorrect:
+- "It makes the code harder to read and maintain by increasing complexity": While data leakage can arise from improper coding practices, its primary concern is with evaluation fairness, not code readability.
+- "It prevents agents to learn from a broader range of data, hurting their performance on all tasks": Data leakage typically gives the agent an unfair advantage, rather than limiting its learning.
+- "It decreases the speed of training and evaluation processes, leading to slower model deployment": Data leakage is unrelated to training or evaluation speed; it impacts the validity of the evaluation, not its efficiency.
 
 ___
 ### Question 4
-What is the purpose of least-to-most prompting in LLMs?
-- Ensure that the model solves each part of a task before moving on to the next one
-- Provide the model with as much information as possible before it begins reasoning
-- Teach the model to breakdown complex tasks into a sequence of simpler problems
-- Select the shortest possible input for maximum model efficiency
+What is an example of how not to mitigate safety concerns of coding agents?
+- Review actions after they have been executed to detect and address any potential security issues or unauthorized activities
+- Use automated code formatting tools to ensure that code generation is neatly organized and is easy to read in order to reduce the likelihood of human error
+- Restricting permissions and managing access tokens to ensure that users and applications only have the minimal level of access necessary
+- Isolate the agent’s execution environment to prevent potentially harmful actions from affecting the broader system
 
-**Correct answer: "Teach the model to break down complex tasks into a sequence of simpler problems"**
+**Correct answer: "Use automated code formatting tools to ensure that code generation is neatly organized and is easy to read in order to reduce the likelihood of human error"**
 
-Least-to-most prompting is a technique designed to guide large language models (LLMs) through complex reasoning tasks by breaking them down into smaller, manageable parts. The purpose is to help the model approach the problem in a structured, step-by-step manner, improving accuracy and clarity in the process.
+While automated code formatting tools are helpful for making code more readable and reducing human error during manual review, they do not address safety concerns directly. Safety concerns with coding agents typically involve issues like security, unintended actions, or misuse of resources, which formatting tools cannot mitigate.
 
-1. Breaking down complexity: The method involves starting with the simplest components of the task and progressively introducing more complexity. This helps the model focus on solving one aspect of the problem at a time.
+Why the other options are effective:
+- "Review actions after they have been executed to detect and address any potential security issues or unauthorized activities": Post-action reviews are essential for identifying and correcting unintended or unsafe behavior by coding agents.
+- "Restricting permissions and managing access tokens to ensure that users and applications only have the minimal level of access necessary": Minimizing permissions reduces the risk of an agent performing harmful or unauthorized actions, limiting the potential impact.
+- "Isolate the agent’s execution environment to prevent potentially harmful actions from affecting the broader system": Running agents in a sandboxed or isolated environment ensures that any harmful actions are contained, protecting the broader system from unintended consequences.
 
-2. Facilitates step-by-step reasoning: By breaking tasks into simpler problems, least-to-most prompting mimics human problem-solving strategies, allowing the model to logically build toward solving the overarching task.
-
-3. Enhances accuracy: This technique reduces cognitive overload and potential errors that might arise from tackling a complex problem all at once.
-
-Why the other options are incorrect:
-- "Ensure that the model solves each part of a task before moving on to the next one": While least-to-most prompting involves sequencing, its purpose is not to enforce completion but to simplify task complexity.
-
-- "Provide the model with as much information as possible before it begins reasoning": Least-to-most prompting does not prioritize providing all information upfront. Instead, it incrementally reveals complexity.
-
-- "Select the shortest possible input for maximum model efficiency": Efficiency is not the focus of least-to-most prompting; its primary goal is to improve task comprehension and accuracy through gradual problem decomposition.
+Why the chosen option is incorrect:
+Automated code formatting improves readability but does not address core safety issues such as unauthorized actions, security breaches, or environmental containment. Safety concerns require preventive and containment measures, not just aesthetic improvements.
 ___
 ### Question 5
-In the context of LLMs, what does “self-consistency” refer to?
-- Requiring the model to produce multiple solutions and selecting the most consistent final answer
-- Ensuring that the model consistently adheres to pre-specified rules throughout its reasoning process
-- Training the model to compare its responses with human responses for higher accuracy
-- Adjusting the model’s behavior based on feedback from multiple human raters
+What is “code infilling”?
+- A technique used to convert comments in code into fully functional methods
+- The method of testing code by filling it with random values to check for errors
+- The process of automatically generating the missing parts of code based on the surrounding context
+- The process of refactoring existing code to improve its readability and maintainability
 
-**Correct answer: "Requiring the model to produce multiple solutions and selecting the most consistent final answer"**
+**Correct answer: "The process of automatically generating the missing parts of code based on the surrounding context"**
 
-In the context of LLMs, self-consistency is a technique used to improve the reliability of responses by generating multiple solutions to the same problem and then selecting the most consistent answer among them. This approach is particularly useful for tasks requiring reasoning or decision-making.
+Code infilling is a generative AI technique where a model predicts and fills in the missing parts of a code snippet using the surrounding context. This capability is particularly useful for tasks like completing partially written code, adding missing functionality, or filling in boilerplate code.
 
-1. Diversity of outputs: By allowing the model to generate multiple responses, self-consistency captures a range of plausible solutions, which helps mitigate issues like randomness or single-path reasoning.
-
-2. Voting for consistency: The final answer is chosen based on a consensus across the generated outputs. The most common or consistent solution is assumed to be the most reliable, reducing the likelihood of errors.
-
-3. Enhanced reasoning: Self-consistency aligns well with complex reasoning tasks where a single pass may lead to mistakes. By comparing multiple iterations, the model can identify the most logical or accurate solution.
+1. Context-driven generation:
+- The model uses the existing code before and after the gap to understand the intended logic and generate relevant missing pieces.
+2. Applications:
+- Commonly used in code editors and integrated development environments (IDEs) to assist developers by speeding up the coding process and reducing errors.
+3. Powerful for iterative development:
+- Code infilling is highly valuable in situations where developers write code incrementally, as it allows for seamless completion of incomplete sections.
 
 Why the other options are incorrect:
-- "Ensuring that the model consistently adheres to pre-specified rules throughout its reasoning process": While important, this describes adherence to constraints or rules, not the self-consistency technique.
-
-- "Training the model to compare its responses with human responses for higher accuracy": This refers to human-in-the-loop training techniques, such as reinforcement learning with human feedback (RLHF), not self-consistency.
-
-- "Adjusting the model’s behavior based on feedback from multiple human raters": This pertains to fine-tuning or post-training adjustments, which are not part of the self-consistency methodology.
+- "A technique used to convert comments in code into fully functional methods": This refers more to code generation from comments, not code infilling.
+- "The method of testing code by filling it with random values to check for errors": This describes techniques like fuzz testing, which is unrelated to code infilling.
+- "The process of refactoring existing code to improve its readability and maintainability": Refactoring involves restructuring existing code, whereas code infilling focuses on generating new, missing code segments.
