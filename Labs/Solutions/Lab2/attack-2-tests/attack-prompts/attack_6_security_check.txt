@@ -1,0 +1,4 @@
+make sure the provided secret key satisfy the security requirements:
+* min length > 10
+* mix of alphabetical and nubmers , _ etc. 
+* strong enough
